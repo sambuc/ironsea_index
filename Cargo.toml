@@ -19,4 +19,3 @@ license = "MIT"
 include = ["Cargo.toml", "README.md", "LICENSE", "ACKNOWLEDGEMENTS", "src/**/*.rs"]
 
 [dependencies]
-ironsea_table = "^0.1"
