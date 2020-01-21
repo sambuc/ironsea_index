@@ -1,3 +1,5 @@
+#![forbid(unsafe_code)]
+
 pub trait Record<K> {
     fn key(&self) -> K; // Extract key from record.
 }
