@@ -3,8 +3,7 @@
 
 //! # Iron Sea - Index
 //!
-//! This repository contains the traits definitions for the Iron Sea
-//! database toolkit indices.
+//! Traits definitions for the Iron Sea database toolkit indices.
 //!
 //! ## Iron Sea: Database Toolkit
 //! **Iron Sea** provides a set of database engine bricks, which can be
