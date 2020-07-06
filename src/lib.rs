@@ -102,14 +102,14 @@ pub trait RecordFields<F> {
 // semantic order
 pub trait Indexed<R, K> {
     /// Retrieve all records matching the key.
-    fn find(&self, key: &K) -> Vec<&R>;
+    fn find<'i>(&'i self, key: &K) -> Box<dyn Iterator<Item = &R> + 'i>;
 
     /// Retrieve all records matching in the key range defined by
     /// `start` and `end`.
     ///
     /// * `start` is included
     // TODO: TBC for `end`
-    fn find_range(&self, start: &K, end: &K) -> Vec<&R>;
+    fn find_range<'i>(&'i self, start: &K, end: &K) -> Box<dyn Iterator<Item = &R> + 'i>;
 }
 
 /// Methods provided by destructuring indices.
@@ -121,12 +121,12 @@ pub trait Indexed<R, K> {
 ///  * `K`: Type of the keys
 pub trait IndexedDestructured<F, K> {
     /// Retrieve all records matching the key.
-    fn find(&self, key: &K) -> Vec<&F>;
+    fn find<'i>(&'i self, key: &K) -> Box<dyn Iterator<Item = &F> + 'i>;
 
     /// Retrieve all records matching in the key range defined by
     /// `start` and `end`.
     ///
     /// * `start` is included
     // TODO: TBC for `end`
-    fn find_range(&self, start: &K, end: &K) -> Vec<(K, &F)>;
+    fn find_range<'i>(&'i self, start: &K, end: &K) -> Box<dyn Iterator<Item = (K, &F)> + 'i>;
 }
