@@ -55,25 +55,23 @@
 ///    }
 /// }
 ///
-/// fn main() {
 ///
-///    let table = vec![MyPair{ a: 10, b:34}, MyPair{ a: 1, b:56}, MyPair{ a: 2, b:23}];
+/// let table = vec![MyPair{ a: 10, b:34}, MyPair{ a: 1, b:56}, MyPair{ a: 2, b:23}];
 ///
-///    // Example without using an actual index crate, we will simply use
-///    // the Record<K> trait to sort the array of pairs.
-///    let mut lex_sort = table.clone();
-///    lex_sort.sort_unstable_by_key(|e| {let k: String = e.key(); k});
+/// // Example without using an actual index crate, we will simply use
+/// // the Record<K> trait to sort the array of pairs.
+/// let mut lex_sort = table.clone();
+/// lex_sort.sort_unstable_by_key(|e| {let k: String = e.key(); k});
 ///
-///    let mut num_sort = table.clone();
-///    num_sort.sort_unstable_by_key(|e| {let k: i64 = e.key(); k});
+/// let mut num_sort = table.clone();
+/// num_sort.sort_unstable_by_key(|e| {let k: i64 = e.key(); k});
 ///
-///    assert_eq!(format!("unsorted {:?}", table),
-///         "unsorted [MyPair { a: 10, b: 34 }, MyPair { a: 1, b: 56 }, MyPair { a: 2, b: 23 }]");
-///    assert_eq!(format!("lex sort {:?}", lex_sort),
-///         "lex sort [MyPair { a: 1, b: 56 }, MyPair { a: 10, b: 34 }, MyPair { a: 2, b: 23 }]");
-///    assert_eq!(format!("num sort {:?}", num_sort),
-///         "num sort [MyPair { a: 1, b: 56 }, MyPair { a: 2, b: 23 }, MyPair { a: 10, b: 34 }]");
-/// }
+/// assert_eq!(format!("unsorted {:?}", table),
+///      "unsorted [MyPair { a: 10, b: 34 }, MyPair { a: 1, b: 56 }, MyPair { a: 2, b: 23 }]");
+/// assert_eq!(format!("lex sort {:?}", lex_sort),
+///      "lex sort [MyPair { a: 1, b: 56 }, MyPair { a: 10, b: 34 }, MyPair { a: 2, b: 23 }]");
+/// assert_eq!(format!("num sort {:?}", num_sort),
+///      "num sort [MyPair { a: 1, b: 56 }, MyPair { a: 2, b: 23 }, MyPair { a: 10, b: 34 }]");
 /// ```
 pub trait Record<K> {
     /// Extract the key from the record.
